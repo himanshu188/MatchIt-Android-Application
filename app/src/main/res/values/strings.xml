@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">MatchIt</string>
+    <string name="title_activity_dash_board">DashBoardActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="textheader1">Going for a italian buffet</string>
+    <string name="textbody1">I\'m going to eat the fresh and popular italian buffet at the Erie Bouldverd. Join me If anyone has the test of italian</string>
+    <string name="textheader2">Taking a Photo Walk at the Onondaga Lake</string>
+    <string name="textbody2">I got a new camera and I want to test and learn some photography. So If any one has interest to take photograph at the lake with fall season, just let me know</string>
+    <string name="textheader3">Going for sailing</string>
+    <string name="textbody3">I will go for sailing on the thanks giving, I\'m looking for a companion</string>
+    <string name="textheader4">Taking a Visit to Golf</string>
+    <string name="textbody4">I\'m going for Golf next weekend. I will spend most of the day there to learn about the golf. Contact me if anyone is looking to join me.</string>
 </resources>
