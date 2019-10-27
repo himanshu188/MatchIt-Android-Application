@@ -19,6 +19,7 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DashBoardActivity.class);
+                finish();
                 view.getContext().startActivity(intent);
             }
         });
