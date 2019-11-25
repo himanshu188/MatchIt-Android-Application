@@ -18,9 +18,8 @@ public class LogInActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DashBoardActivity.class);
-                finish();
-                view.getContext().startActivity(intent);
+                Intent intent = new Intent(LogInActivity.this, DashBoardActivity.class);
+                startActivity(intent);
             }
         });
     }
