@@ -1,22 +1,19 @@
-package com.example.matchit.ui.home.ui.post;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.matchit.ui.gallery;
 
 import android.app.ListActivity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.JsonReader;
+import android.text.Layout;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.fragment.app.ListFragment;
+
 import com.example.matchit.Constant;
-import com.example.matchit.DashBoardActivity;
-import com.example.matchit.LogInActivity;
 import com.example.matchit.R;
 import com.google.gson.Gson;
 
@@ -25,25 +22,23 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Map;
 
-import javax.net.ssl.HttpsURLConnection;
-
-public class DynamicListActivity extends ListActivity {
+public class DynamicListActivity extends ListFragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.post_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View root = inflater.inflate(R.layout.post_list, container, false);
+        return root;
+    }
 
-        CustomAdapter adapter = new CustomAdapter(this);
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        CustomAdapter adapter = new CustomAdapter(getActivity());
 
         setListAdapter(adapter);
 

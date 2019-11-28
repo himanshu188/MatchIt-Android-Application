@@ -1,4 +1,4 @@
-package com.example.matchit.ui.home.ui.post;
+package com.example.matchit.ui.gallery;
 
 import com.google.gson.annotations.SerializedName;
 

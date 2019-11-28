@@ -1,4 +1,4 @@
-package com.example.matchit.ui.home.ui.post;
+package com.example.matchit.ui.gallery;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.example.matchit.R;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class CustomAdapter extends BaseAdapter {
     private Context mContext;

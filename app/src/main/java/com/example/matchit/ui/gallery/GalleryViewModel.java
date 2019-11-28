@@ -6,14 +6,10 @@ import androidx.lifecycle.ViewModel;
 
 public class GalleryViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private DynamicListActivity mText;
 
     public GalleryViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText = new DynamicListActivity();
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
 }
