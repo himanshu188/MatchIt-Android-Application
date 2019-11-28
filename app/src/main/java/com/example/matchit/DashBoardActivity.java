@@ -66,6 +66,7 @@ public class DashBoardActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.action_profile:
                 finish();
+
         }
         return false;
     }

@@ -9,6 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.ListFragment;
@@ -16,6 +20,8 @@ import androidx.fragment.app.ListFragment;
 import com.example.matchit.Constant;
 import com.example.matchit.R;
 import com.google.gson.Gson;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -26,11 +32,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
-public class DynamicListActivity extends ListFragment {
+public class DynamicListActivity extends ListFragment{
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState){
         View root = inflater.inflate(R.layout.post_list, container, false);
         return root;
     }
@@ -41,7 +48,13 @@ public class DynamicListActivity extends ListFragment {
         CustomAdapter adapter = new CustomAdapter(getActivity());
 
         setListAdapter(adapter);
-
+//        AdapterView.OnItemClickListener clickListener = new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(getContext(), "Not Working", Toast.LENGTH_SHORT).show();
+//                Log.d("Testing","OnClick For Adapter");
+//            }
+//        };
         new PostTask(adapter).execute();
     }
 }

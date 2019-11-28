@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.matchit.ui.gallery.DynamicListActivity"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_dashboard"
          />
 
     <fragment
