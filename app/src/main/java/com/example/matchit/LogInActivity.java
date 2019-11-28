@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.matchit.ui.home.ui.post.DynamicListActivity;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,7 +35,7 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
         if(!sharedPreferences.getString("username", "").isEmpty()){
-            Intent intent = new Intent(this, DashBoardActivity.class);
+            Intent intent = new Intent(this, DynamicListActivity.class);
             startActivity(intent);
             finish();
         }
