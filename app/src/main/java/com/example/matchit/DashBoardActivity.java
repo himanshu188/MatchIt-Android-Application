@@ -1,5 +1,6 @@
 package com.example.matchit;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -64,8 +65,11 @@ public class DashBoardActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.action_profile:
-                finish();
+            case R.id.action_profile:{
+
+                Intent intent = new Intent(getApplicationContext(), ProfilePage.class);
+                getApplicationContext().startActivity(intent);
+            }
 
         }
         return false;
