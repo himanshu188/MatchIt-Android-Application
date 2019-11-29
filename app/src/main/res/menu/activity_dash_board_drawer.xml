@@ -14,8 +14,8 @@
             android:title="@string/menu_dashboard" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:title="@string/menu_message" />
         <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/ic_menu_manage"
