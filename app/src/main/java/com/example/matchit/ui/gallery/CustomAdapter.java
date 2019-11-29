@@ -1,5 +1,6 @@
 package com.example.matchit.ui.gallery;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+
 import com.example.matchit.R;
 
 import java.util.ArrayList;
@@ -17,6 +21,7 @@ import java.util.ArrayList;
 public class CustomAdapter extends BaseAdapter {
     private Context mContext;
 
+    private FragmentActivity fragmentActivity;
     private LayoutInflater mLayoutInflater;
 
     private TextView title;
@@ -24,6 +29,7 @@ public class CustomAdapter extends BaseAdapter {
     private ArrayList<SearchResult> mEntries = new ArrayList<SearchResult>();
 
     public CustomAdapter(Context context){
+        fragmentActivity = (FragmentActivity) context;
         mContext = context;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -48,7 +54,7 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        RelativeLayout itemView;
+        final RelativeLayout itemView;
         if(convertView == null){
            itemView = (RelativeLayout) mLayoutInflater.inflate(R.layout.post_list_item, parent, false);
         } else {
@@ -58,7 +64,10 @@ public class CustomAdapter extends BaseAdapter {
         title.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "Not Working", Toast.LENGTH_SHORT).show();
+                ContactDialogFragment contactDialogFragment = new ContactDialogFragment();
+                FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+                contactDialogFragment.show(fragmentManager, "Dialog box");
+//                Toast.makeText(mContext, "Not Working", Toast.LENGTH_SHORT).show();
                 Log.d("OnClick","Working fine ");
             }
         });
