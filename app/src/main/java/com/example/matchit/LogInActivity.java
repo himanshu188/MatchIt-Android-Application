@@ -31,7 +31,7 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = this.getSharedPreferences("database", Context.MODE_PRIVATE);
         if(!sharedPreferences.getString("username", "").isEmpty()){
             Intent intent = new Intent(this, DashBoardActivity.class);
             startActivity(intent);
@@ -89,6 +89,11 @@ class LoginTask extends AsyncTask<String, Integer, Integer> {
                     jsonString.append(line);
                 }
                 br.close();
+                SharedPreferences sharedPreferences = logInActivity.getSharedPreferences("database", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Log.d("id : ", jsonString.toString());
+                editor.putString("id", jsonString.toString());
+                editor.commit();
                 responseCode = urlConnection.getResponseCode();
             } finally {
                 urlConnection.disconnect();
@@ -106,7 +111,7 @@ class LoginTask extends AsyncTask<String, Integer, Integer> {
     protected void onPostExecute(Integer integer) {
         super.onPostExecute(integer);
         if(integer == HttpsURLConnection.HTTP_OK){
-            SharedPreferences sharedPreferences = logInActivity.getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences sharedPreferences = logInActivity.getSharedPreferences("database", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("username", username);
             editor.commit();

@@ -41,7 +41,7 @@
                 android:layout_below="@+id/name"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="10dp"
-                android:text="I am sexy and i know it"
+                android:text="Bio"
                 android:textColor="#fff"
                 android:textSize="18sp" />
 
@@ -85,10 +85,11 @@
 
 
                 <TextView
+                    android:id="@+id/interest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:text="Only Sex"
+                    android:text="Interest"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -116,6 +117,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                     <TextView
+                        android:id="@+id/city"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -148,10 +150,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                 <TextView
+                    android:id="@+id/movies"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:text="Jism 2"
+                    android:text="Captain America"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -180,10 +183,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                 <TextView
+                    android:id="@+id/sports"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:text="Rock climbing"
+                    android:text="sports"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -212,6 +216,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                 <TextView
+                    android:id="@+id/food"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
@@ -244,10 +249,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                 <TextView
+                    android:id="@+id/age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:text="23"
+                    android:text="Age"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -276,6 +282,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                 <TextView
+                    android:id="@+id/social_media"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
