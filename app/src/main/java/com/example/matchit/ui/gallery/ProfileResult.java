@@ -29,4 +29,7 @@ public class ProfileResult {
 
     @SerializedName("social_media")
     public String social_media;
+
+    @SerializedName("photo")
+    public String photo;
 }

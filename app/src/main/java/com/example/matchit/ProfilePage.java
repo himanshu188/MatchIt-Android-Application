@@ -2,38 +2,30 @@ package com.example.matchit;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.example.matchit.ui.gallery.ProfileResult;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class ProfilePage extends AppCompatActivity {
 
@@ -122,8 +114,33 @@ class ProfileTask extends AsyncTask<String, Integer, ProfileResult> {
             age.setText(profileResult.age.toString());
             TextView social_media =  activity.findViewById(R.id.social_media);
             social_media.setText(profileResult.social_media);
+            new DownloadTask(activity).execute(profileResult.photo);
+
         } else {
             Toast.makeText(context, "Username / Password Error", Toast.LENGTH_SHORT).show();
         }
+    }
+}
+class DownloadTask extends AsyncTask<String, Bitmap, Bitmap> {
+
+    Activity activity;
+    public DownloadTask(Activity activity){
+       this.activity = activity;
+    }
+    @Override
+    protected Bitmap doInBackground(String... strings) {
+        String url = strings[0];
+        Bitmap bitmap = null;
+        try {
+            bitmap = BitmapFactory.decodeStream((InputStream)new URL(url).getContent());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+    @Override
+    protected void onPostExecute(Bitmap result){
+        ImageView imageView = activity.findViewById(R.id.profile_img);
+        imageView.setImageBitmap(result);
     }
 }
