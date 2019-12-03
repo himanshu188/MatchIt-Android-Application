@@ -44,6 +44,13 @@ public class LogInActivity extends AppCompatActivity {
                 new LoginTask(LogInActivity.this.getApplicationContext(), LogInActivity.this).execute(username, password);
             }
         });
+        TextView signUpButton = (TextView) findViewById(R.id.signUp_text);
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(LogInActivity.this, SignUpActivity.class);
+                startActivity(myIntent);            }
+        });
     }
 }
 
