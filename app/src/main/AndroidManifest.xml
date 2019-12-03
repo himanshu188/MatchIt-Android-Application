@@ -16,6 +16,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.gallery.DynamicListActivity"></activity>
         <activity android:name=".ProfilePage" />
+        <activity android:name=".SignUpActivity" />
         <activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
