@@ -1,6 +1,8 @@
 package com.example.matchit;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -69,6 +71,14 @@ public class DashBoardActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), ProfilePage.class);
                 getApplicationContext().startActivity(intent);
+                break;
+            }
+            case R.id.action_logout:{
+                SharedPreferences sharedPreferences = this.getSharedPreferences("database", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("username", "");
+                editor.commit();
+                finish();
             }
 
         }
