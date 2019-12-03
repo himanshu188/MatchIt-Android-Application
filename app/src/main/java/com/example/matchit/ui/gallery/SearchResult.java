@@ -11,5 +11,8 @@ public class SearchResult {
 
     @SerializedName("content")
     String content;
+
+    @SerializedName("photo")
+    String photo;
 }
 

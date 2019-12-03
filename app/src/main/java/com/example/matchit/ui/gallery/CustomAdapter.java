@@ -1,21 +1,27 @@
 package com.example.matchit.ui.gallery;
 
-import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.appcompat.view.menu.MenuView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.matchit.R;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class CustomAdapter extends BaseAdapter {
@@ -67,21 +73,44 @@ public class CustomAdapter extends BaseAdapter {
                 ContactDialogFragment contactDialogFragment = new ContactDialogFragment();
                 FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
                 contactDialogFragment.show(fragmentManager, "Dialog box");
-//                Toast.makeText(mContext, "Not Working", Toast.LENGTH_SHORT).show();
                 Log.d("OnClick","Working fine ");
             }
         });
         TextView content = (TextView) itemView.findViewById(R.id.listContent);
 
-        String titleSearch = mEntries.get(0).title.toString();
+        String titleSearch = mEntries.get(position).title;
         title.setText(titleSearch);
-        String contentSearch = mEntries.get(0).content.toString();
+        String contentSearch = mEntries.get(position).content;
         content.setText(contentSearch);
+        new DownloadTask(itemView).execute(mEntries.get(position).photo);
         return itemView;
     }
 
     public void upDateEntries(ArrayList<SearchResult> entries){
         mEntries = entries;
         notifyDataSetChanged();
+    }
+}
+class DownloadTask extends AsyncTask<String, Bitmap, Bitmap> {
+
+    RelativeLayout itemView;
+    public DownloadTask(RelativeLayout itemView){
+        this.itemView = itemView;
+    }
+    @Override
+    protected Bitmap doInBackground(String... strings) {
+        String url = strings[0];
+        Bitmap bitmap = null;
+        try {
+            bitmap = BitmapFactory.decodeStream((InputStream)new URL(url).getContent());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+    @Override
+    protected void onPostExecute(Bitmap result){
+        ImageView imageView = itemView.findViewById(R.id.imageView4);
+        imageView.setImageBitmap(result);
     }
 }

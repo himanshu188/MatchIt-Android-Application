@@ -1,7 +1,10 @@
 package com.example.matchit.ui.gallery;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Layout;
@@ -11,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,13 +52,6 @@ public class DynamicListActivity extends ListFragment{
         CustomAdapter adapter = new CustomAdapter(getActivity());
 
         setListAdapter(adapter);
-//        AdapterView.OnItemClickListener clickListener = new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getContext(), "Not Working", Toast.LENGTH_SHORT).show();
-//                Log.d("Testing","OnClick For Adapter");
-//            }
-//        };
         new PostTask(adapter).execute();
     }
 }
@@ -80,14 +77,7 @@ class PostTask extends AsyncTask<String, Integer , ArrayList<SearchResult>> {
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.setRequestProperty("Accept-Charset", "UTF-8");
-//            urlConnection.setDoOutput(true);
             try {
-//                String requestBody = "username=" + URLEncoder.encode(strings[0], "UTF-8")  + "&password=" + URLEncoder.encode(strings[1], "UTF-8");
-//                username = strings[0];
-//                OutputStreamWriter writer = new OutputStreamWriter(urlConnection.getOutputStream());
-//                writer.write(requestBody);
-//                writer.close();
-//                urlConnection.connect();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
                 ArrayList<SearchResult> lst = new ArrayList<>();
