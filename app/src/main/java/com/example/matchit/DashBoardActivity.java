@@ -47,7 +47,7 @@ public class DashBoardActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_gallery, R.id.nav_home,  R.id.nav_slideshow,
+                R.id.nav_gallery, R.id.nav_slideshow,
                 R.id.nav_tools)
                 .setDrawerLayout(drawer)
                 .build();
@@ -70,6 +70,7 @@ public class DashBoardActivity extends AppCompatActivity {
             case R.id.action_profile:{
 
                 Intent intent = new Intent(getApplicationContext(), ProfilePage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(intent);
                 break;
             }

@@ -124,6 +124,7 @@ class LoginTask extends AsyncTask<String, Integer, Integer> {
             editor.putString("username", username);
             editor.commit();
             Intent intent = new Intent(context, DashBoardActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
             logInActivity.finish();
         } else {
