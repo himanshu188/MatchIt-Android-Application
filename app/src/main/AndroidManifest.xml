@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.gallery.DynamicListActivity"></activity>
+        <activity android:name=".ProfilePageEdit"></activity>
+        <activity android:name=".ui.gallery.DynamicListActivity" />
         <activity android:name=".ProfilePage" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LogInActivity">

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/profile_page_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textChangeProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Change Profile Infomration"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/bioHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textChangeProfile"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Bio"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/bioTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:textSize="18sp"></EditText>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/interestHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/bioHorizontal"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/interest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Interest"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/interestTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:textSize="18sp">
+
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/currentCityHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/interestHorizontal"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/currentCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Current City"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/currentCityTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:textSize="18sp">
+
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/favMoviesHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/currentCityHorizontal"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/favMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Favourite Movies"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/favMoviesTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:textSize="18sp"></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/favSportsHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/favMoviesHorizontal"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/favSports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Favourite Sports"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/favSportsTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:textSize="18sp"></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/foodHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/favSportsHorizontal"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Food Preference"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/foodTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:textSize="18sp"></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ageHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/foodHorizontal"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Age"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/ageTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:textSize="18sp"></EditText>
+        </LinearLayout>
+        <Button
+            android:id="@+id/profilePageSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:text="Submit"
+            android:layout_below="@id/ageHorizontal"
+            android:textSize="24sp"
+            ></Button>
+    </RelativeLayout>
+</ScrollView>
