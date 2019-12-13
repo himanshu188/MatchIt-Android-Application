@@ -245,6 +245,14 @@
                 android:layout_margin="10dp"
                 android:textSize="18sp"></EditText>
         </LinearLayout>
-
+        <Button
+            android:id="@+id/profilePageSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:text="Submit"
+            android:layout_below="@id/ageHorizontal"
+            android:textSize="24sp"
+            ></Button>
     </RelativeLayout>
 </ScrollView>
