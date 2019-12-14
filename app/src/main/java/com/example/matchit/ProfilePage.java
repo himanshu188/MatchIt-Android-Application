@@ -2,6 +2,7 @@ package com.example.matchit;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,6 +15,8 @@ import com.google.gson.Gson;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +37,15 @@ public class ProfilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         new ProfileTask(getApplicationContext(), this).execute();
         setContentView(R.layout.activity_profile_page);
+
+        Button button = (Button) findViewById(R.id.profile_change);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ProfileEditActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 }
 
