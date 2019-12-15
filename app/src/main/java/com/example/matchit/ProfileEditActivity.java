@@ -117,11 +117,6 @@ class ProfileEditTask extends AsyncTask<HashMap<String, String>, Integer, Intege
                     jsonString.append(line);
                 }
                 br.close();
-//                SharedPreferences sharedPreferences = activity.getSharedPreferences("database", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor editor = sharedPreferences.edit();
-//                Log.d("id : ", jsonString.toString());
-//                editor.putString("id", jsonString.toString());
-//                editor.commit();
                 responseCode = urlConnection.getResponseCode();
             } finally {
                 urlConnection.disconnect();
@@ -139,19 +134,7 @@ class ProfileEditTask extends AsyncTask<HashMap<String, String>, Integer, Intege
     protected void onPostExecute(Integer integer) {
         super.onPostExecute(integer);
         if(integer == HttpsURLConnection.HTTP_OK){
-//            SharedPreferences sharedPreferences = activity.getSharedPreferences("database", Context.MODE_PRIVATE);
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//            editor.putString("username", username);
-//            editor.commit();
-//            Intent intent = new Intent(context, DashBoardActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            context.startActivity(intent);
-//            activity.getParentActivityIntent().relo
-//            activity.getParent().recreate();
             activity.finish();
-//            Intent intent = activity.getParentActivityIntent();
-//            Intent intent = new Intent(context, ProfilePage.class);
-//            context.startActivity(intent);
         } else {
             Toast.makeText(context, "Username / Password Error", Toast.LENGTH_SHORT).show();
         }

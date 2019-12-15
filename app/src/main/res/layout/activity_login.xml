@@ -66,7 +66,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:id="@+id/button_sign_in"
+            android:id="@+id/button_sign_up"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/button"

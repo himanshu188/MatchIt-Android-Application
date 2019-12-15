@@ -42,7 +42,7 @@ public class LogInActivity extends AppCompatActivity {
         final TextView userview = findViewById(R.id.username);
         final TextView passwordview = findViewById(R.id.password);
 
-        Button button = (Button) findViewById(R.id.button_sign_in);
+        Button button = (Button) findViewById(R.id.button_sign_up);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
