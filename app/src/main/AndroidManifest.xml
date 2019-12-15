@@ -14,10 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProfilePageEdit"></activity>
+        <activity android:name=".LogInActivity"></activity>
+        <activity android:name=".ProfilePageEdit" />
         <activity android:name=".ui.gallery.DynamicListActivity" />
         <activity android:name=".ProfilePage" />
-        <activity android:name=".LogInActivity">
+        <activity android:name=".MessageBoard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
