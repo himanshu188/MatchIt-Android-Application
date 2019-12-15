@@ -12,6 +12,7 @@ import android.os.Bundle;
 import com.example.matchit.ui.gallery.ProfileResult;
 import com.google.gson.Gson;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
@@ -32,9 +33,12 @@ import java.net.URL;
 
 public class ProfilePage extends AppCompatActivity {
 
+    Activity activity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        activity = this;
         new ProfileTask(getApplicationContext(), this).execute();
         setContentView(R.layout.activity_profile_page);
 
@@ -43,9 +47,15 @@ public class ProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ProfileEditActivity.class);
-                v.getContext().startActivity(intent);
+                activity.startActivityForResult(intent, 100);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        recreate();
     }
 }
 
@@ -110,9 +120,9 @@ class ProfileTask extends AsyncTask<String, Integer, ProfileResult> {
         if(profileResult != null){
             TextView name =  activity.findViewById(R.id.name);
             name.setText(profileResult.name);
-            TextView bio =  activity.findViewById(R.id.bio);
+            TextView bio =  activity.findViewById(R.id.bioText);
             bio.setText(profileResult.tag);
-            TextView interest =  activity.findViewById(R.id.interest);
+            TextView interest =  activity.findViewById(R.id.interestText);
             interest.setText(profileResult.interest);
             TextView city =  activity.findViewById(R.id.city);
             city.setText(profileResult.city);

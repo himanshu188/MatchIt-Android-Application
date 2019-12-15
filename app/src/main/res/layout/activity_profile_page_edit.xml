@@ -20,10 +20,44 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            android:id="@+id/bioHorizontal"
+            android:id="@+id/tagHorizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/textChangeProfile"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Tag"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/tagTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:textSize="18sp"></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bioHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tagHorizontal"
             android:layout_margin="5dp"
             android:layout_marginTop="5dp"
             android:orientation="horizontal"
@@ -34,7 +68,7 @@
             android:paddingBottom="10dp">
 
             <TextView
-                android:id="@+id/bio"
+                android:id="@+id/bioText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -43,7 +77,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/bioTextField"
+                android:id="@+id/bio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -66,7 +100,7 @@
             android:paddingBottom="10dp">
 
             <TextView
-                android:id="@+id/interest"
+                android:id="@+id/interestText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -75,7 +109,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/interestTextField"
+                android:id="@+id/interest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"

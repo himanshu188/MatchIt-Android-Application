@@ -90,7 +90,6 @@ class LoginTask extends AsyncTask<String, Integer, Integer> {
                 OutputStreamWriter writer = new OutputStreamWriter(urlConnection.getOutputStream());
                 writer.write(requestBody);
                 writer.close();
-//                urlConnection.connect();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader br = new BufferedReader(new InputStreamReader(in));
                 while((line = br.readLine()) != null){
