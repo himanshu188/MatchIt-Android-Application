@@ -37,13 +37,16 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         final TextView userview = findViewById(R.id.signup_username);
         final TextView passwordview = findViewById(R.id.signup_password);
+        final TextView nameview = findViewById(R.id.name);
         Button button = (Button) findViewById(R.id.button_sign_up);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = userview.getText().toString();
                 String password = passwordview.getText().toString();
+                String name = nameview.getText().toString();
                 new SignUpTask(view.getContext(), activity).execute(username, password);
+                new SignUpProfileTask(view.getContext(), activity).execute(name);
             }
         });
     }
@@ -100,6 +103,61 @@ class SignUpTask extends AsyncTask<String, Integer, Integer> {
         super.onPostExecute(integer);
         if(integer == HttpsURLConnection.HTTP_OK){
             Toast.makeText(context, "Account Created", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Username / Password Error", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+
+
+class SignUpProfileTask extends AsyncTask<String, Integer, Integer> {
+
+    private Context context;
+    private Activity activity;
+
+    protected SignUpProfileTask(Context context, Activity activity){
+        this.context = context.getApplicationContext();
+        this.activity = activity;
+    }
+    @Override
+    protected Integer doInBackground(String... strings) {
+        String line;
+        StringBuffer jsonString = new StringBuffer();
+        Integer responseCode = 0;
+        try {
+            URL url = new URL(Constant.PATH + "/profile/create");
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("POST");
+            urlConnection.setRequestProperty("Accept-Charset", "UTF-8");
+            urlConnection.setDoOutput(true);
+            try {
+                String requestBody = "name=" + URLEncoder.encode(strings[0], "UTF-8");
+                OutputStreamWriter writer = new OutputStreamWriter(urlConnection.getOutputStream());
+                writer.write(requestBody);
+                writer.close();
+                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                while((line = br.readLine()) != null){
+                    jsonString.append(line);
+                }
+                br.close();
+                responseCode = urlConnection.getResponseCode();
+            } finally {
+                urlConnection.disconnect();
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Log.d("Response", responseCode.toString());
+        return responseCode;
+    }
+
+    @Override
+    protected void onPostExecute(Integer integer) {
+        super.onPostExecute(integer);
+        if(integer == HttpsURLConnection.HTTP_OK){
             activity.finish();
         } else {
             Toast.makeText(context, "Username / Password Error", Toast.LENGTH_SHORT).show();
