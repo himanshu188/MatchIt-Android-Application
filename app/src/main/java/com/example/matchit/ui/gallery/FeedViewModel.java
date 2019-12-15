@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class FeedViewModel extends ViewModel {
 
     private DynamicListActivity mText;
 
-    public GalleryViewModel() {
+    public FeedViewModel() {
         mText = new DynamicListActivity();
     }
 
