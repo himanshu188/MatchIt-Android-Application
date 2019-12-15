@@ -27,7 +27,7 @@
                 android:layout_below="@+id/profile_img"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:text="The Harsh Doshi"
+                android:text=""
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
                 android:layout_below="@+id/name"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="10dp"
-                android:text="Bio"
+                android:text=""
                 android:textSize="18sp" />
 
 
@@ -86,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:text="Interest"
+                    android:text=""
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -118,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
-                        android:text="Syracuse"
+                        android:text=""
                         android:textSize="25dp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -151,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:text="Captain America"
+                    android:text=""
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -184,7 +184,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:text="sports"
+                    android:text=""
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -217,7 +217,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:text="Only vegeterian"
+                    android:text=""
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"

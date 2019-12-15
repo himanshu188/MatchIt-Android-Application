@@ -133,7 +133,7 @@ class ProfileTask extends AsyncTask<String, Integer, ProfileResult> {
             TextView food =  activity.findViewById(R.id.food);
             food.setText(profileResult.food);
             TextView age =  activity.findViewById(R.id.age);
-            age.setText(profileResult.age.toString());
+            age.setText(profileResult.age!=null ? profileResult.age.toString() : "");
             TextView social_media =  activity.findViewById(R.id.social_media);
             social_media.setText(profileResult.social_media);
             new DownloadTask(activity).execute(profileResult.photo);
