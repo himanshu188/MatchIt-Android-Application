@@ -38,6 +38,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+// Activity to Display Dynamic posts from the MongoDB Database
 public class DynamicListActivity extends ListFragment{
 
     @Override
@@ -68,11 +69,11 @@ class PostTask extends AsyncTask<String, Integer , ArrayList<SearchResult>> {
     }
     @Override
     protected ArrayList<SearchResult> doInBackground(String... strings) {
-        Log.d("Testing","Reached");
         String line;
         StringBuffer jsonString = new StringBuffer();
         Integer responseCode = 0;
         try {
+//            Fetch all the posts from the Given REST API
             URL url = new URL(Constant.PATH + "/post/get");
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
@@ -83,13 +84,12 @@ class PostTask extends AsyncTask<String, Integer , ArrayList<SearchResult>> {
                 ArrayList<SearchResult> lst = new ArrayList<>();
                 Gson gson = new Gson();
                 while((line = br.readLine()) != null){
+//                    Store the Result in String
                     jsonString.append(line);
                 }
                 br.close();
                 SearchResult[] searchResultAll = gson.fromJson(jsonString.toString(), SearchResult[].class);
-                Log.d("Result", searchResultAll[0].title);
                 for(int i = 0; i < searchResultAll.length; i++){
-                   Log.d("Result", searchResultAll[i].title);
                    lst.add(searchResultAll[i]);
                 }
                 return lst;
@@ -109,6 +109,7 @@ class PostTask extends AsyncTask<String, Integer , ArrayList<SearchResult>> {
         super.onPostExecute(searchResults);
         try {
             if(searchResults != null){
+//                Display all the Posts
                 customAdapter.upDateEntries(searchResults);
             } else {
                 Toast.makeText(context, "Not Working", Toast.LENGTH_SHORT).show();

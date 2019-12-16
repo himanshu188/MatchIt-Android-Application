@@ -13,14 +13,8 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.matchit.ui.slideshow.SlideshowFragment"
+        android:name="com.example.matchit.ui.slideshow.MessageFragment"
         android:label="@string/menu_message"
         tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.example.matchit.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
 
 </navigation>

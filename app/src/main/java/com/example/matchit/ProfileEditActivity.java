@@ -31,6 +31,7 @@ import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 
 public class ProfileEditActivity extends AppCompatActivity {
+//    An Activity for Editing the Profile
 
     Activity activity;
     @Override
@@ -43,6 +44,7 @@ public class ProfileEditActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Fetch the changes from all the text box
                 HashMap<String, String> hmap = new HashMap<>();
                 EditText editText = findViewById(R.id.interest);
                 hmap.put("interest", editText.getText().toString());
@@ -101,6 +103,7 @@ class ProfileEditTask extends AsyncTask<HashMap<String, String>, Integer, Intege
         String id = sharedPreferences.getString("id", "");
         Integer responseCode = 0;
         try {
+//            POST Method API for Sending the changes of profile
             URL url = new URL(Constant.PATH + "/profile/update/" + id);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("POST");

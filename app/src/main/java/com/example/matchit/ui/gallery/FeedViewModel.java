@@ -8,6 +8,7 @@ public class FeedViewModel extends ViewModel {
 
     private DynamicListActivity mText;
 
+//    Display the following content in Home Feed
     public FeedViewModel() {
         mText = new DynamicListActivity();
     }

@@ -2,6 +2,7 @@ package com.example.matchit.ui.gallery;
 
 import com.google.gson.annotations.SerializedName;
 
+// This is the content of the Profile Section
 public class ProfileResult {
     @SerializedName("name")
     public String name;

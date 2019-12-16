@@ -29,6 +29,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class SignUpActivity extends AppCompatActivity {
 
+//    Signup Form for the New User
     Activity activity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,7 @@ class SignUpTask extends AsyncTask<String, Integer, Integer> {
         StringBuffer jsonString = new StringBuffer();
         Integer responseCode = 0;
         try {
+//            REST API to Create New User
             URL url = new URL(Constant.PATH + "/user/signup");
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("POST");

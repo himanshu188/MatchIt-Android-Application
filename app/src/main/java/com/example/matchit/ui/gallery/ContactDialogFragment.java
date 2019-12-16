@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.matchit.R;
-import com.example.matchit.ui.slideshow.SlideshowFragment;
+import com.example.matchit.ui.slideshow.MessageFragment;
 
 public class ContactDialogFragment extends DialogFragment {
     @Override
@@ -19,7 +19,8 @@ public class ContactDialogFragment extends DialogFragment {
         builder.setMessage("Are you sure to message ?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Fragment fragment = new SlideshowFragment();
+//                        If Users want to send message to the owner of the post.
+                        Fragment fragment = new MessageFragment();
                         FragmentManager fragmentManager = getFragmentManager();
                         fragmentManager.beginTransaction()
                                         .replace(R.id.nav_host_fragment, fragment)

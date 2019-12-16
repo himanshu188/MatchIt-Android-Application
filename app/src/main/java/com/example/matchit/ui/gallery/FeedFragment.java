@@ -17,6 +17,7 @@ public class FeedFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+//        Display the post
         feedViewModel =
                 ViewModelProviders.of(this).get(FeedViewModel.class);
         View root = inflater.inflate(R.layout.post_list, container, false);

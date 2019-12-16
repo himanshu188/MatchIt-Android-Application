@@ -46,6 +46,7 @@ public class ProfilePage extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Open the Profile Edit Activity
                 Intent intent = new Intent(v.getContext(), ProfileEditActivity.class);
                 activity.startActivityForResult(intent, 100);
             }
@@ -77,22 +78,14 @@ class ProfileTask extends AsyncTask<String, Integer, ProfileResult> {
         StringBuffer jsonString = new StringBuffer();
         Integer responseCode = 0;
         ProfileResult profileResult;
-        Log.d("testing","testing 123");
         String id = sharedPreferences.getString("id", "");
-        Log.d("Id number",id);
         try {
+//            Fetch the profile using the Following REST API
             URL url = new URL(Constant.PATH + "/profile/get/" + id);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.setRequestProperty("Accept-Charset", "UTF-8");
-//            urlConnection.setDoOutput(true);
             try {
-//                String requestBody = "username=" + URLEncoder.encode(strings[0], "UTF-8")  + "&password=" + URLEncoder.encode(strings[1], "UTF-8");
-//                username = strings[0];
-//                OutputStreamWriter writer = new OutputStreamWriter(urlConnection.getOutputStream());
-//                writer.write(requestBody);
-//                writer.close();
-//                urlConnection.connect();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader br = new BufferedReader(new InputStreamReader(in));
                 Gson gson = new Gson();
@@ -118,6 +111,7 @@ class ProfileTask extends AsyncTask<String, Integer, ProfileResult> {
     protected void onPostExecute(ProfileResult profileResult) {
         super.onPostExecute(profileResult);
         if(profileResult != null){
+//            Display the Contents of the Profile
             TextView name =  activity.findViewById(R.id.name);
             name.setText(profileResult.name);
             TextView bio =  activity.findViewById(R.id.bioText);
@@ -154,6 +148,7 @@ class DownloadTask extends AsyncTask<String, Bitmap, Bitmap> {
         String url = strings[0];
         Bitmap bitmap = null;
         try {
+//            Download the Image of Profile Picture
             bitmap = BitmapFactory.decodeStream((InputStream)new URL(url).getContent());
         } catch (IOException e) {
             e.printStackTrace();

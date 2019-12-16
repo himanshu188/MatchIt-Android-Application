@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 
+//Adapter for displaying the dynamic post in the home
 public class CustomAdapter extends BaseAdapter {
     private Context mContext;
 
@@ -32,6 +33,7 @@ public class CustomAdapter extends BaseAdapter {
 
     private TextView title;
 
+//    List of the Post Entries
     private ArrayList<SearchResult> mEntries = new ArrayList<SearchResult>();
 
     public CustomAdapter(Context context){
@@ -73,7 +75,6 @@ public class CustomAdapter extends BaseAdapter {
                 ContactDialogFragment contactDialogFragment = new ContactDialogFragment();
                 FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
                 contactDialogFragment.show(fragmentManager, "Dialog box");
-                Log.d("OnClick","Working fine ");
             }
         });
         TextView content = (TextView) itemView.findViewById(R.id.listContent);
@@ -99,6 +100,7 @@ class DownloadTask extends AsyncTask<String, Bitmap, Bitmap> {
     }
     @Override
     protected Bitmap doInBackground(String... strings) {
+//        Download the post image from the Amazon S3
         String url = strings[0];
         Bitmap bitmap = null;
         try {
@@ -110,6 +112,7 @@ class DownloadTask extends AsyncTask<String, Bitmap, Bitmap> {
     }
     @Override
     protected void onPostExecute(Bitmap result){
+//        Display the images in the ImageView
         ImageView imageView = itemView.findViewById(R.id.imageView4);
         imageView.setImageBitmap(result);
     }

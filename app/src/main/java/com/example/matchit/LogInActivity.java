@@ -32,6 +32,7 @@ public class LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences sharedPreferences = this.getSharedPreferences("database", Context.MODE_PRIVATE);
+//        If the user is already logged then open the DashBoard Directly
         if(!sharedPreferences.getString("username", "").isEmpty()){
             Intent intent = new Intent(this, DashBoardActivity.class);
             startActivity(intent);
@@ -48,6 +49,7 @@ public class LogInActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username = userview.getText().toString();
                 String password = passwordview.getText().toString();
+//                Authenticate the user
                 new LoginTask(LogInActivity.this.getApplicationContext(), LogInActivity.this).execute(username, password);
             }
         });
@@ -55,6 +57,7 @@ public class LogInActivity extends AppCompatActivity {
         signUpText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Goto the Signup Page
                 Intent intent = new Intent(v.getContext(), SignUpActivity.class);
                 v.getContext().startActivity(intent);
             }
@@ -74,7 +77,6 @@ class LoginTask extends AsyncTask<String, Integer, Integer> {
     }
     @Override
     protected Integer doInBackground(String... strings) {
-        Log.d("Testing","Reached");
         String line;
         StringBuffer jsonString = new StringBuffer();
         Integer responseCode = 0;
@@ -101,6 +103,7 @@ class LoginTask extends AsyncTask<String, Integer, Integer> {
                 Log.d("id : ", jsonString.toString());
                 editor.putString("id", jsonString.toString());
                 editor.commit();
+//                Get the User Logged In
                 responseCode = urlConnection.getResponseCode();
             } finally {
                 urlConnection.disconnect();
@@ -118,6 +121,7 @@ class LoginTask extends AsyncTask<String, Integer, Integer> {
     protected void onPostExecute(Integer integer) {
         super.onPostExecute(integer);
         if(integer == HttpsURLConnection.HTTP_OK){
+//            Open the DashBoard if Loging is successful
             SharedPreferences sharedPreferences = logInActivity.getSharedPreferences("database", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("username", username);
@@ -127,6 +131,7 @@ class LoginTask extends AsyncTask<String, Integer, Integer> {
             context.startActivity(intent);
             logInActivity.finish();
         } else {
+//            If Credentials are incorrect, then show an error
             Toast.makeText(context, "Username / Password Error", Toast.LENGTH_SHORT).show();
         }
     }
